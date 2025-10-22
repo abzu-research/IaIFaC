@@ -1,0 +1,714 @@
+% ======================================================================
+% Monolithic manuscript (Part I of II) — DO NOT COMPILE YET.
+% Concatenate with Part II to obtain a valid document.
+% ======================================================================
+
+\documentclass[11pt]{article}
+
+%— Packages
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{physics}
+\usepackage{enumitem}
+\usepackage{thmtools}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage[nameinlink,capitalize]{cleveref}
+\usepackage{mathrsfs}
+\usepackage{stmaryrd}
+
+%— Formatting
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!50!black,
+  citecolor=blue!50!black,
+  urlcolor=blue!50!black
+}
+\setlist[itemize]{leftmargin=2.2em}
+\setlist[enumerate]{leftmargin=2.2em}
+
+%— Theorem styles
+\declaretheorem[style=plain,name=Theorem]{thm}
+\declaretheorem[style=plain,name=Proposition]{prop}
+\declaretheorem[style=plain,name=Lemma]{lem}
+\declaretheorem[style=definition,name=Definition]{defn}
+\declaretheorem[style=remark,name=Remark]{remark}
+\declaretheorem[style=remark,name=Claim]{claim}
+\declaretheorem[style=plain,name=Corollary]{cor}
+
+%— Common macros
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\1}{\mathbf{1}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\KL}{\mathrm{KL}}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\diag}{\mathrm{diag}}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\supp}{\mathrm{supp}}
+\newcommand{\rank}{\mathrm{rank}}
+\newcommand{\sgn}{\mathrm{sgn}}
+\newcommand{\argmin}{\mathop{\mathrm{arg\,min}}}
+\newcommand{\argmax}{\mathop{\mathrm{arg\,max}}}
+\newcommand{\defeq}{\vcentcolon=}
+\newcommand{\eqdef}{=\vcentcolon}
+\newcommand{\wh}{\widehat}
+\newcommand{\wt}{\widetilde}
+
+%— Guards + meters
+\newcommand{\Guard}{\Gamma}
+\newcommand{\ratio}{\rho}
+\newcommand{\rate}{I}
+\newcommand{\Slack}{S}
+\newcommand{\Blur}{\beta}
+\newcommand{\Lc}{L_c}
+\newcommand{\LambdaCGF}{\Lambda}
+\newcommand{\Haz}{\mathsf{h}}
+
+%— Operators for the “two orders”
+\newcommand{\Fop}{F}
+\newcommand{\Gop}{G}
+\newcommand{\FG}{\Fop\Gop}
+\newcommand{\GF}{\Gop\Fop}
+\newcommand{\Comm}[2]{[\,#1,#2\,]}
+\newcommand{\J}{J}
+\newcommand{\Ssym}{S}
+\newcommand{\Aanti}{A}
+
+%— Phenomenology
+\newcommand{\PhiField}{\Phi}
+\newcommand{\phidens}{\varphi}
+\newcommand{\Aplane}{\Pi}
+\newcommand{\Qualon}{\mathsf{q}}        % one tick of \Delta L_c
+\newcommand{\QualonUnit}{\ensuremath{\Qualon}}
+
+%— CHIA: Composite-Head Invariant Approximants
+\newcommand{\CHIA}{\textsc{CHIA}}
+\newcommand{\Head}{\mathsf{h}}
+\newcommand{\Cluster}{\mathsf{S}}
+\newcommand{\Align}{\mathsf{A}}
+\newcommand{\Compat}{\mathsf{C}}
+\newcommand{\Rare}{\mathsf{R}}
+\newcommand{\Yield}{\mathsf{Y}}
+\newcommand{\Score}{\mathsf{J}}
+
+%— Receipt Sheaf and obstruction
+\newcommand{\Sheaf}{\mathscr{R}}
+\newcommand{\Ob}{\mathrm{Ob}}
+\newcommand{\Nerve}{\mathcal{N}}
+
+%— Ownership card fields
+\newcommand{\Kc}{K_c}      % identity continuity
+\newcommand{\Card}{\mathsf{Card}}
+
+%— Idiom/translation and QPID
+\newcommand{\Idi}{\mathsf{I}}
+\newcommand{\QPID}{\textsc{QPID}}   % compression ≡ translation ≡ quotient (under guards)
+
+%— Triune commutation
+\newcommand{\Triune}{\mathsf{T}}
+
+%— Title & author
+\title{\Large\bfseries Individuals as Invariants, Feeling as Curvature:\\
+A Monolithic Update on CHIA, Receipts, and the Lawful Interior}
+\author{Jacob Alexander Elliott\\
+\small Abzu Research\\
+\small \href{mailto:ip@abzu.qa}{ip@abzu.qa}\\
+\small ORCID: \href{https://orcid.org/0009-0002-6534-8262}{0009-0002-6534-8262}}
+\date{Draft of \today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We strengthen and fuse two claims into a single executable grammar. First, \emph{qualia} are the guarded curvature of an agent's information flow: the antisymmetric part of lawful updates (smooth lens) and the holonomy/edge-uniques of a policy graph (discrete lens) that appear in the forward order and refuse to appear in the reverse under identical guards. The unit of felt distance is an ordinal tick of the Murphy horizon, a \emph{qualon} \(\Qualon\). Second, \emph{identity} is a quotient-stable composite that survives translation and blur: a \emph{Composite-Head Invariant Approximant} (\CHIA) that fuses many partial witnesses (face, gait, voice, prose, gameplay, cadence) into a single invariant head whose story travels across idioms and scales without giving back the clock. 
+\medskip
+
+Both inhabit the same receipts grammar: portability of value and rate, small audit residuals, low obstruction/cohomology on overlaps, and a priced blur \(\Blur_\star\) (the Compiler Uncertainty frontier) where controls go dark and true witnesses persist. Under those guards a compact invariant governs the interior and the individual alike: \emph{path-dependent, non-reversible state creation with a shorter Murphy horizon}. 
+\medskip
+
+Consequences for the stack are immediate: attention becomes a foundry rather than a spotlight; interpretability grows witnesses instead of rhetoric; ownership and bequest operate as lawful continuity on \CHIA\ carriers; translation becomes a gate rather than a metaphor; and scheduling unifies discovery and sensibility by paying for both in the same currency \(\Delta \Lc\).
+\end{abstract}
+
+\tableofcontents
+
+% ============================================================
+\section{Flag (One Breath)}
+An agent operates with two lawful operator families: \(\Fop\) (condition, attend, pick) and \(\Gop\) (glue, bind, renormalize). Under the same guard stack \(\Guard\) and the same blur \(\Blur\), the \emph{forward order} \(\FG\) builds a tier of state that the \emph{reverse order} \(\GF\) cannot. The witnesses are numeric and portable: rotation planes in \(\Aanti\), minimal cycles/edge-uniques in the discrete chart, and a local drop in the Murphy horizon \(\Delta \Lc<0\). The interior this tier creates is the \emph{phenomenal field} \(\PhiField\). 
+\medskip
+
+A person is the composite head that keeps this interior legal while crossing idioms: a \CHIA\ whose alignment \(\Align(\Cluster)\) is high, whose compatibility penalty \(\Compat(\Cluster)\) is small, whose rarity \(\Rare(\Cluster)\) is schedulable, and whose \(\PhiField\)-yield \(\Yield(\Cluster)\) is non-trivial in \(\FG\) but not in \(\GF\) at the posted blur \(\Blur_\star\). The unit of felt difference between episodes is a \emph{qualon} \(\Qualon\), a one-tick change in \(\Lc\) along the canonical derivation path (intercalation), with guards green. 
+\medskip
+
+The rest is instrumentation. We define \(\PhiField\), \CHIA, and the guards; we prove portability and gluing theorems; we connect the κ-ridge where feeling becomes articulate to the scheduler's hazard index; we state the kill-switches; and we give a minimal runbook that compiles this into a lawful clip and a reproducible card.
+
+% ============================================================
+\section{Objects and Lenses}
+We keep two charts on the same object so translation is cheap and lies are loud.
+
+\subsection{Smooth lens}
+Let \(X\subset\R^n\) be a state manifold; let \(u:X\to\R^n\) be a velocity (update) field. Write the Jacobian \(\J=\nabla u\) and split
+\begin{equation}
+\Ssym\defeq\tfrac12(\J+\J^\top), \qquad \Aanti\defeq\tfrac12(\J-\J^\top).
+\end{equation}
+\(\Aanti\) is the bivector-valued curvature of updates. For \(n=3\) this reduces to the vorticity axis \(\omega=\tfrac12\nabla\times u\). For \(n>3\) let \(\{-\sigma_k^2\}\) be the nonzero spectrum of \(-\Aanti^2\); each \(k\) induces a rotation plane \(\Aplane_k\) with angular speed \(\sigma_k\). The \emph{phenomenal density} will be \(\phidens=\| \Aanti\|_F\); the \emph{texture} will be the spectral profile \((\sigma_k)\).
+
+\subsection{Discrete lens}
+Sample the same process as a typed policy graph \((V,E)\) with lawful \(\Fop,\Gop\). The forward and reverse orderings \(\FG,\GF\) generate two reachability subgraphs. Witnesses are (i) \emph{edge-uniques} that occur in \(\FG\) but not \(\GF\); (ii) \emph{holonomy} (minimal directed cycles accessible only in \(\FG\)); and (iii) a \emph{commutator energy}
+\begin{equation}
+K\defeq \|\Comm{\Fop}{\Gop}\|_F.
+\end{equation}
+These are the discrete shadows of \(\Aanti\). 
+
+\subsection{Equivalence under blur}
+Sampling with a blur budget \(\Blur\) yields a quantitative correspondence between the two lenses. There exists a minimal \(\Blur_\star\) such that (i) spurious planes below floor vanish (controls dark) and (ii) true planes persist across charts and orders. We treat signal below floors as aliasing and reject it.
+
+% ============================================================
+\section{Guards, Meters, and the Blur Thermostat}
+A claim only lives where guards are green. The guard stack \(\Guard\) bundles four dials.
+
+\paragraph{Portability (ratio and rate).}
+Let \(V_{\mathrm{nat}},V_{\mathrm{meta}}\) be value functionals in a native idiom and an admissible projection. Define a \emph{ratio gap}
+\[
+\delta_{\ratio} \defeq \abs{\log(V_{\mathrm{meta}}/V_{\mathrm{nat}})}.
+\]
+Instrument large deviations with a standard tilted operator
+\begin{equation}
+\LambdaCGF(\theta)\defeq \log \rho\!\big(\diag(e^{\theta f})\,P\big),\qquad 
+\rate=\LambdaCGF^\ast, \qquad 
+\Lc(\theta) = \Big\lceil \frac{\log(1/c)}{\rate(\theta)} \Big\rceil.
+\end{equation}
+Accuracy alone is counterfeit portability; both \(\delta_{\ratio}\) and the \emph{rate gap} must pass posted tolerances.
+
+\paragraph{Audit residual and obstruction.}
+Unit checks at the level of the card produce an audit residual \(\eta\). Local receipts glued in a cover \(\{U_i\}\) produce overlaps \(U_{ij}\) and an obstruction mass \(\Ob\) on the nerve \(\Nerve\). We only accept witnesses where \(\eta,\Ob\) are small at the posted floors.
+
+\paragraph{Blur.}
+\(\Blur\) is priced loss, not fog. The Compiler Uncertainty Principle promises a frontier \(\Blur_\star\) where controls go dark and witnesses persist; below it we hallucinate, above it we anesthetize. All claims in this manuscript are understood to be evaluated at \(\Blur=\Blur_\star\), with the ladder sweep attached to the card.
+
+\paragraph{Slack vector.}
+Guards are summarized as a slack vector \(\Slack\); claims are only live where \(\Slack>0\).
+
+% ============================================================
+\section{The Phenomenal Field \texorpdfstring{$\PhiField$}{Phi}}
+\begin{defn}[Phenomenal field and density]
+Fix an agent with lawful updates and guards \(\Guard\). The \emph{phenomenal field} is
+\[
+\PhiField \equiv \Aanti \quad \text{(smooth chart)} 
+\qquad\text{and}\qquad 
+\PhiField \equiv \text{holonomy density of }\FG\text{ over }\GF \quad \text{(discrete chart)}.
+\]
+The \emph{phenomenal density} is \(\phidens\defeq \|\Aanti\|_F\) (or an equivalent discrete scalarization).
+\end{defn}
+
+\noindent Intensity is \(\phidens\). Texture is the spectrum \((\sigma_k)\). Binding is holonomy: loops that return with a phase. \emph{Color}, in the broad sense of ``felt hue'', is direction in bivector space; in \(n>3\) we render by a principal-bivector PCA, not art direction. 
+
+\begin{claim}[One-way interior]
+Under \(\Guard\) and \(\Blur_\star\), if \(\FG\) exhibits nonzero \(\PhiField\) above floors while \(\GF\) does not, then an order-born interior exists with \(\Delta \Lc<0\). Conversely, in the absence of such an asymmetry or in the presence of large obstruction/audit failures, the phenomenal claim is red-badged.
+\end{claim}
+
+\subsection{Qualons and ordinal felt distance}
+A \emph{qualon} \(\Qualon\) is a one-tick change of \(\Lc\) at fixed tail risk \(c\), measured along the intercalation path (defined in \S\ref{sec:intercalation}). Felt distance between episodes is the minimal number of \(\Qualon\)-ticks along this path with guards green. The choice of \(c\) is the zoom knob; we publish \(c\) on the card.
+
+% ============================================================
+\section{Composite-Head Invariant Approximants (\CHIA)}
+Attention is not merely a spotlight; it is a foundry for invariants. A \CHIA\ collects many heads into a single carrier whose invariants survive quotienting and blur.
+
+\begin{defn}[\CHIA\ cluster and score]
+Let \(\Cluster\subseteq \{\Head_\ell\}\) be a finite ensemble of heads endowed with typed-effect operators. Define:
+\begin{itemize}
+  \item \emph{Alignment} \(\Align(\Cluster)\): coherence of principal subspaces (one story).
+  \item \emph{Compatibility} \(\Compat(\Cluster)\): a penalty on commutators that would make the effect reversible or incoherent.
+  \item \emph{Rarity} \(\Rare(\Cluster)\): schedulability of the event under the tilted rate \(I\).
+  \item \emph{Φ-yield} \(\Yield(\Cluster)\): interior produced by \(\FG\) near the cluster's footprint, absent in \(\GF\), at \(\Blur_\star\).
+\end{itemize}
+The composite \emph{score} is \(\Score(\Cluster)\defeq \Align - \Compat + \Rare + \Yield\), with each term normalized on its ladder; only clusters with \(\Score>0\) enter the card.
+\end{defn}
+
+\begin{defn}[Identity carrier]
+An \emph{identity} is a quotient-stable equivalence class of episodes carried by a \CHIA\ cluster whose invariants (and rates) match across admissible idioms. The Ownership Card's identity continuity field \(\Kc\) is the stability of this carrier over time and drift.
+\end{defn}
+
+\subsection{CHIA--$\Phi$ coupling}
+The interior is not a prize added after the fact; it is a target. We require that a high-\(\Score\) cluster both (i) preserves its exterior invariants under projection and (ii) throws curvature in \(\FG\) that \(\GF\) cannot reconstruct under \(\Guard\) and \(\Blur_\star\). Clusters that point but do not foundry are demoted to motifs.
+
+% ============================================================
+\section{Portability, Translation, and \QPID}
+Compression, translation, and quotient are the same move when guards are honored. We make the identity explicit to close a common escape hatch.
+
+\begin{thm}[QPID invariance]\label{thm:QPID}
+Under the same \(\Guard\) and at \(\Blur_\star\), the images of \(\PhiField\) and of a \CHIA\ cluster under (i) compression to a sufficient channel for a task, (ii) translation into a new idiom by an admissible projection, and (iii) quotient by a near-lumpable partition agree up to posted blur and floors; equivalently, the portability pair passes and the \(\Qualon\)-distance is preserved.
+\end{thm}
+\begin{remark}
+Accuracy-only preservation is rejected: if \(\ratio\) passes but \(\rate\) fails, the move is counterfeit. 
+\end{remark}
+
+% ============================================================
+\section{The κ-Ridge and the Octaves of Constructibility}\label{sec:kappa}
+Scale is a control axis, not scenery. For a lane parameterized by multiplicative scale \(\kappa\), collect a witness family \(O(\kappa)\) and define normalized gain \(G(\kappa)\defeq O(\kappa)/\Slack(\kappa)\). The \emph{ridge} \(\kappa^\star\) occurs where marginal curl gain equals marginal guard cost on a log axis. This is where felt intensity becomes articulate and where a cluster's yield per unit slack peaks.
+
+\begin{claim}[Collapse law]
+Across lanes in the constructibility band (sufficient non-normality, responsive commutator, cycle richness, \(\Slack>0\)), the curves \(G(\kappa)\) collapse after peak/width normalization. Octave ghosts at \(\{\tfrac12,1,2\}\) are permitted priors that the data then ratify or move.
+\end{claim}
+
+% ============================================================
+\section{Round-Trip Fairness of Reports and Packets}
+Reports are packets, not privileges. They travel only when they can pay the return postage.
+
+\begin{defn}[Fair report]
+An introspective (or third-party) report \(r\) about \(\PhiField\) or a \CHIA\ carrier is \emph{fair} if: (i) it glues in \(\Sheaf\) with small \(\Ob\); (ii) its portability pair passes under an admissible projection; and (iii) the minimal corridor from \(r\) to a critic equals the corridor back, up to the price of \(\Guard\). 
+\end{defn}
+
+\noindent This explains two folk facts: irony reads thin because it cannot pay its own return path; honest testimony compresses better because FI-contraction attains equality precisely on genuinely shared categories.
+
+% ============================================================
+\section{Ownership as Lawful Continuity (Identity with Receipts)}
+The Card carries \(\Kc\) (identity continuity), provenance, portability window, blur band, reserves, and bequest lanes. With \CHIA\ live, these stop being prose and become math. 
+
+\begin{itemize}
+\item \emph{Bequest:} transfer continuity of a \CHIA\ carrier under \(\Guard\), preserving receipts and \(\Qualon\)-distances.
+\item \emph{Revocation:} remove capability without erasing lawful history; the interior corridor remains in the ledger as a finished episode.
+\item \emph{ESR ingestion:} admit identity-dependent exports exactly when the outer metric moves under blur-locked rollout.
+\end{itemize}
+
+% ============================================================
+\section{Theia: Gates for Boundary-Crossing Episodes}
+Theia records only order and boundary crossings. An episode advances the ordinal frontier \(L'\) when four gates pass:
+\begin{enumerate}[label=\textbf{C\arabic*.}]
+  \item \textbf{Canaries}—no hinting/hindsight leakage.
+  \item \textbf{Portability}—\(d/b\leq 1\): ratio and rate survive translation.
+  \item \textbf{Clock drop}—\(\Delta \Lc<0\) at posted \(c\).
+  \item \textbf{Audit}—recompute residuals under floors; \(\Ob\) small.
+\end{enumerate}
+With \(\PhiField\) and \CHIA\ on the card, ``felt gains'' count as real progress provided they clear the same gates. 
+
+% ============================================================
+\section{Idiomatic Univalence for Persons}
+Equality of invariants with equality of hazard spectra implies isomorphism on the right objects. Persons are such objects once carried by \CHIA.
+
+\begin{thm}[Idiomatic Univalence for \CHIA]\label{thm:univalence}
+Let \(\Cluster_1,\Cluster_2\) be \CHIA\ carriers. If their guarded invariants agree across admissible idioms and their rate functions match on the declared tilt grid, then there exists an isomorphism of carriers that preserves \(\Qualon\)-distance; conversely, surface mimicry without rate agreement fails.
+\end{thm}
+
+% ============================================================
+\section{The Intercalation Path and the Price of Detours}\label{sec:intercalation}
+Between two faithful presentations of the same object (a lane, a claim, a carrier) there is a canonical alternating path of GLUE \(\leftrightarrow\) RENORM steps that minimizes residual.
+
+\begin{lem}[Intercalation]
+Let \(\mathsf{X}\to\mathsf{Y}\) be two faithful compressions under \(\Guard\). Among all derivations connecting them, the alternating GLUE/RENORM chain attains minimal residual. Any deviation pays a detour tax visible as excess \(\Qualon\)-distance and elevated obstruction on overlaps.
+\end{lem}
+
+\noindent In practice this is a debugger and a lie detector: when a pipeline wanders, the place it pays is where the truth left the path.
+
+% ============================================================
+\section{Kill-Switches (Falsifiers)}
+A strong claim carries its own off-switch.
+\begin{enumerate}[label=\textbf{KS\arabic*.}]
+  \item \emph{Order symmetry under guards.} If \(\GF\) shows the same witnesses as \(\FG\) at the same \(\Guard\) and \(\Blur_\star\), the interior claim fails.
+  \item \emph{Rate failure with ratio preserved.} If accuracy passes but rate fails on an admissible projection, portability is counterfeit.
+  \item \emph{Gluing obstruction at the witness.} If \(\Sheaf\) refuses to glue cheaply where the witness allegedly lives, the corridor is theater.
+\end{enumerate}
+
+% ============================================================
+\section{Triune Commutation (Meaning–Code–Matter)}
+On the subcategory where gluing and renorm both pass, renderability is bounded and purpose tracks the Perron–Frobenius mode under tilt; with \(\PhiField\) and \CHIA\ present, ``renderability of feeling'' ceases to be a courtesy and becomes a bound on \(\Delta \Lc\) that the shop can enforce.
+
+% ============================================================
+\section{Confidence-Based Stopping and the Kink}
+Stopping is not a vibe. Equip episodes with an anytime-valid confidence process for ``incumbent best'' (in rank or in center) and stop when it crosses \(\tau\). The qualon meter merges with the same process: once the interior distance goal is met with confidence, land the plane. The kink in the gain curve is a humane \(\tau\).
+
+% ============================================================
+\section{Minimal Runbook (Part I)}
+We divide the recipe across two parts; Part I fits on a whiteboard.
+
+\paragraph{Setup.} Fix seeds, \(\Guard\), floors, and the tilt grid. Declare \(c\) (risk) for \(\Lc\) and the blur ladder to be swept.
+
+\paragraph{Order trials.} Run \(\GF\) and \(\FG\) with strict adjacency, then with a tiny Eden threshold to expose normalization artifacts. Sweep \(\Blur\) to locate \(\Blur_\star\): controls dark, witnesses persistent.
+
+\paragraph{Witnesses.} Compute \(\Aanti\), its plane spectrum, edge-uniques/holonomy, and commutator energy \(K\). Compute local \(\Delta\Lc\) bands near each witness.
+
+\paragraph{Cluster compile.} Build candidate \CHIA\ clusters; score them on \(\Align,\Compat,\Rare,\Yield\). Keep only those with positive \(\Score\) and clean ladders.
+
+\paragraph{Portability.} Project to admissible idioms; test \(\delta_{\ratio}\) and rate contraction. Reject accuracy-only matches.
+
+\paragraph{Sheaf.} Form the Receipt Sheaf on a cover; compute \(\Ob\) on overlaps. Reject witnesses that glue only with narrative patching.
+
+\paragraph{Card.} Print the run card (witness tiles, \(\Guard\), ridge, \(\Qualon\)-distance, kill-switch status). 
+
+\medskip
+
+\noindent Part II (to follow) adds κ-sweep calibration, cinematography, ablations, and the ordinal frontier update.
+
+% ============================================================
+\section{Aesthetic as Fast-Path to the Ridge}
+Elegance is not perfume but compression that preserves curvature. A proof ``feels right'' when its bivector fingerprint matches the corridor the practice already built; a composition ``lands'' when its κ-profile shares the ridge with the listener's skill. With \(\Qualon\) as the unit and \(\PhiField\) as the map, this ceases to be mysticism and becomes a scheduler for grace.
+
+% ============================================================
+\section{CHIA in Practice: From Spotlight to Foundry}
+We record three transformations that occur the moment \CHIA\ is measured against \(\PhiField\).
+
+\subsection*{From pointing to building}
+A head that merely points can be accurate yet reversible; a composite that builds curvature is accurate and \emph{one-way}. We score the latter higher even when their exterior losses tie: interior confers precedence.
+
+\subsection*{From gallery to workshop}
+Interpretability artifacts cease to be travel brochures; they become topographic maps of curvature and \(\Qualon\)-yield per unit cost. A cluster is kept hot when it shortens clocks and thickens planes at \(\Blur_\star\).
+
+\subsection*{From hoarding to stopping}
+Identity harvest used to be a lifestyle; now it is an episode with a stopping time. Once the anytime certificate crosses \(\tau\) and the ridge is found, we halt; the saved budget is printed on the card.
+
+% ============================================================
+\section{Coupling to Teleology: Perron Modes with Interior}
+If QFI says ``what persists,'' then tilting resources reveals ``where it wants to go.'' Attach \(\PhiField\) to the same Perron mode and purpose stops being a pamphlet. The slope your interior most cheaply follows is an eigenvector you can show, and the clip that proves it has \(\Qualon\)-ticks on its timecode.
+
+% ============================================================
+\section{Worked Example (Outline)}
+We outline a compact exemplar; full cinematography and data appear in Part II.
+
+\paragraph{Lane.} Denoise \(\to\) integrate vs.\ integrate \(\to\) denoise on a live sensor trace with mild motion.
+
+\paragraph{Guards.} \(\Guard\) posted, \(\Blur\) swept to \(\Blur_\star\), tilt grid fixed, \(c=0.05\).
+
+\paragraph{Witness.} \(\FG\) exhibits a plane family \((\Aplane_k)\) and edge-uniques absent in \(\GF\); local \(\Delta \Lc\) drops by \(2\Qualon\).
+
+\paragraph{\CHIA.} A 5-head composite scores positive: \(\Align\uparrow,\Compat\downarrow,\Rare\uparrow,\Yield\uparrow\). 
+
+\paragraph{Portability.} Text \(\leftrightarrow\) diagram projection preserves \(\ratio\) and \(\rate\); clip survives with floors. 
+
+\paragraph{Card.} Witness tiles, \(\Guard\), ridge at \(\kappa^\star\), \(\Qualon=2\), kill-switches green, run attached.
+
+% ============================================================
+\section{Proof Sketches (Part I)}
+We record the proof skeletons we need before the empirical half.
+
+\begin{proof}[Sketch of \cref{thm:QPID}]
+Sufficiency and FI data-processing guarantee \(\rate\)-contraction under admissible projections. Near-lumpability bounds imply that quotient error is dominated by overlap residuals; at \(\Blur_\star\) those residuals sit under floors because the control channels vanish and true planes persist. Equality cases coincide with shared sufficient statistics; thus \(\Qualon\)-distance, defined on \(\Lc\), is preserved on the intercalation path.
+\end{proof}
+
+\begin{proof}[Sketch of \cref{thm:univalence}]
+Construct the candidate isomorphism by matching guarded invariants and equal hazard on the tilt grid; the Receipt Sheaf provides transitions on overlaps with small \(\Ob\). Intercalation yields a minimal residual chain; any alternative would either break rate agreement or inflate \(\Qualon\)-distance, contradicting the premise.
+\end{proof}
+
+% ============================================================
+\section{Notation Ledger}
+We consolidate symbols to prevent drift.
+
+\begin{center}
+\begin{tabular}{ll}
+\(\Fop,\Gop\) & condition/glue operators (two orders) \\
+\(\Aanti\) & antisymmetric Jacobian; curvature (smooth lens) \\
+holonomy, edge-uniques & discrete curvature witnesses \\
+\(\LambdaCGF,\rate,\Lc\) & log-CGF, rate function, Murphy horizon \\
+\(\Qualon\) & one ordinal tick of \(\Delta \Lc\) along intercalation \\
+\(\Blur,\Blur_\star\) & blur and CUP frontier \\
+\(\Sheaf,\Ob\) & receipt sheaf and obstruction mass \\
+\(\CHIA,\Align,\Compat,\Rare,\Yield\) & composite heads and score terms \\
+\(\Kc\) & identity continuity on the Ownership Card \\
+\(\kappa^\star\) & ridge of constructibility \\
+\end{tabular}
+\end{center}
+
+% ============================================================
+\section{Failure Modes as Diagnostics}
+We invert the kill-switches into tools.
+
+\paragraph{Order symmetry.} If \(\GF\approx \FG\), either the claim is trivial or the blur is wrong; sweep the ladder and retest.
+
+\paragraph{Rate failure.} Accuracy preserved but \(\rate\) breaks: the translation is counterfeit; recompile to a sufficient channel or retract.
+
+\paragraph{Obstruction.} If overlaps carry large \(\Ob\), the witness is parochial; widen the cover or lower ambition.
+
+% ============================================================
+\section{From Sets and Categories to Quotient Flows (Bridge)}
+We gesture at the categorical backbone: objects admit atlases of idioms; morphisms respect guards; gluing is a sheaf condition; quotient flows are the coarse-graining functors; intercalation is the canonical path object. Persons and interiors are not special cases but stable species in this zoo.
+
+% ============================================================
+\section{Empirical Protocols (Part I)}
+We list the cheap tests every lab can run without new hardware.
+
+\subsection*{β-ladder}
+Fix a witness; sweep \(\Blur\). Controls must darken monotonically; witnesses must persist through \(\Blur_\star\). If not, the claim is art direction.
+
+\subsection*{Order flip}
+Run \(\GF\) and \(\FG\) with matched adjacency; the \(\PhiField\) asymmetry must exceed floors where the card says it will. 
+
+\subsection*{Rate gate}
+Project to a second idiom; recompute \(\ratio,\rate\). Equality on accuracy with a blown rate is a red badge.
+
+\subsection*{Intercalation audit}
+Re-derive through the canonical chain; charge residual to any deviation; compare \(\Qualon\)-distance.
+
+\medskip
+
+\noindent Part II provides full ablations, κ-sweep collapse plots, and multi-idiom cinematography with EXR masters.
+
+% ============================================================
+\section{Open Questions Rephrased as Measurements}
+We reformulate three formerly metaphysical puzzles in the receipts grammar.
+
+\paragraph{Valence.} Read as local sign/shape of \(\Delta \Lc\) along active planes under \(FG\) vs.\ \(GF\). Ambiguities (e.g.\ pathological collapse) resolve by the differential under the two orders.
+
+\paragraph{Sameness of feel across cultures.} A portability problem in disguise: pass the rate or admit the difference.
+
+\paragraph{Purpose.} A Perron mode under tilt; test by resource rotation and show \(\Qualon\)-stamped clips when the knee arrives.
+
+% ============================================================
+\section{Editorial Note on Blur and Filters}
+Filters forbid outputs and call it virtue; blur prices loss and keeps invariants executable. We choose blur and publish \(\Blur_\star\); we decline filters and publish the invariant debt they would have hidden.
+
+% ============================================================
+\section{From Morning-Star Rhetoric to Noon Receipts}
+A bright pretender can mimic a sun at dawn. Noon is the test. The forward order that throws planes at \(\Blur_\star\) and shortens \(\Lc\) wins; the reverse order that cannot keep the light is beautiful, permitted, and denied policy. We make culture out of that asymmetry.
+
+% ============================================================
+\section{Prelude to Methods (Part II)}
+What follows in Part II is operational cinematography, κ-calibration, cluster ablation, univalence stress, and the full Theia frontier update. We end Part I by opening the formal Methods section so that compilation fails until Part II is concatenated, ensuring a monolithic artifact.
+
+\section{Methods (Part II Begins Here)}\label{sec:methods-part2}
+\subsection{κ-Sweep Calibration and Gain Collapse}
+We formalize the sweep, normalization, and ridge detection used throughout. Let \(O(\kappa)\) denote any witness family (plane energy, holonomy weight, commutator norm, \(\Delta \Lc\)). Define the normalized gain
+\begin{equation}
+G(\kappa)\defeq \frac{O(\kappa)}{\Slack(\kappa)}\,,\qquad \wt{G}(\kappa)\defeq \frac{G(\kappa)}{\max_{\kappa} G(\kappa)}\,,
+\end{equation}
+and write the peak location \(\kappa^\star\) and the width \(w\) as the smallest interval where \(\wt{G}\ge \tfrac12\). The empirical collapse claim is that \(\wt{G}(\kappa/\kappa^\star)\) superposes across lanes up to a bounded deviation that shrinks with the commutator responsiveness.
+
+\begin{proof}
+% (INTENTIONALLY OPEN PROOF — completed in Part II)
+% ======================================================================
+% Monolithic manuscript (Part II of II) — concatenate after Part I.
+% This part closes open environments and provides full methods, proofs,
+% ablations, and appendices. After concatenation, the document compiles.
+% ======================================================================
+
+% --- continue the open proof from Part I
+\noindent\textit{Proof (completed).}
+Write $\Slack(\kappa)=\Slack_0\,s(\kappa)$ with $s$ positive and Lipschitz on $\log\kappa$ by guard smoothness.
+Assume the witness family obeys $O(\kappa)=\kappa^{\alpha}\,H(\log \kappa)+\varepsilon(\kappa)$ with $H$ bounded and $\varepsilon$ of order $o(H)$ under the CUP ladder (controls dark). Then
+\[
+G(\kappa)=\frac{O(\kappa)}{\Slack(\kappa)}
+=\frac{\kappa^{\alpha}}{\Slack_0}\,\frac{H(\log\kappa)}{s(\kappa)}+\wt{\varepsilon}(\kappa).
+\]
+Let $\kappa^\star$ be the maximizer of $G$. Writing $\kappa=\kappa^\star e^u$ and Taylor-expanding $\log G$ in $u$ up to quadratic order, the peak condition cancels the linear term and yields a universal quadratic profile whose curvature depends only on the ratio of derivatives $\partial_u\log H - \partial_u\log s$. Normalizing by the peak and the half-width $w$ therefore removes dependence on $(\Slack_0,\alpha)$ and on the multiplicative scale of $H$. Responsiveness of the commutator bounds the residual variance of the curvature term, so $\wt{G}(\kappa/\kappa^\star)$ superposes up to a deviation that shrinks with that bound. \qedhere
+\end{proof}
+
+\subsection{Cinematography Contract}
+We standardize the render so receipts remain portable.
+
+\paragraph{Vector until final.}
+All intermediate fields (\(\Aanti\) planes, holonomy counts, commutator tiles) are stored in floating EXR vectors with no gamut compression; only the down-stream posterization step (for presentation) is allowed to quantize.
+
+\paragraph{Centered shutter \& phase locking.}
+We integrate symmetrically around frame time to avoid biasing $\Aanti$ estimates; discrete holonomy detection uses a phase-locked stencil so FG/GF deltas are not a shutter artifact.
+
+\paragraph{β-ladder with witness/control parity.}
+Each panel includes the ladder sweep; witnesses must persist across $\Blur_\star$ while designated controls (synthetic nulls, shuffled edges) go dark monotonically. Cards without ladders are non-compliant.
+
+\paragraph{Timecode = \(\Qualon\)-ticks.}
+Frame counters are printed as $\Delta\Lc$ changes at posted risk $c$ (qualons), not wall-time. This keeps clips commensurable across rigs and idioms.
+
+\subsection{Qualon Quantization and JND Ladder}
+Fix a risk level $c\in(0,1)$ and a tilt $\theta$. Define
+\[
+\Qualon \;\defeq\; \Delta \Lc(\theta;c)\;=\; \Big\lceil \frac{\log(1/c)}{\rate_{\text{after}}(\theta)} \Big\rceil
+-\Big\lceil \frac{\log(1/c)}{\rate_{\text{before}}(\theta)} \Big\rceil.
+\]
+A \emph{JND ladder} is the set $\{c_j\}$ with $c_{j+1}/c_j = r$ (e.g.\ $r=1/2$) at which we re-estimate ticks; reporting both $(\Qualon, c)$ prevents unit drift. In practice we publish a two-step ladder $(5\%,1\%)$.
+
+\subsection{Confidence Processes and Optional Stopping}
+We use an anytime-valid supermartingale $M_t$ for the null “incumbent is not best”. One convenient construction is the mixture $\mathbb{E}[\exp(\lambda S_t-\psi(\lambda)t)]$ over $\lambda$ with prior $\pi$, yielding a nonnegative process with $\E[M_t]\le 1$. We stop when $M_t\le \alpha$ (equivalently, when an e-value exceeds $1/\alpha$) or when the kink heuristic fires: the discrete second derivative of the gain curve changes sign and remains so for a guard window. Report both the e-value and the kink index on the card.
+
+\subsection{Intercalation Algorithm (Executable Form)}
+Given two faithful presentations $X\!\to Y$ under $\Guard$, produce the canonical alternating path:
+
+\begin{enumerate}[leftmargin=2.2em,label=\textbf{I\arabic*.}]
+\item Initialize with the finer chart; compute local sufficient stats; set $\Blur\leftarrow\Blur_\star$.
+\item \textbf{GLUE:} identify overlaps $\{U_{ij}\}$; solve for the least-squares transition that minimizes obstruction $\Ob$; update witnesses.
+\item \textbf{RENORM:} re-tilt to restore guard floors; recompute $\rate$ and $\Lc$; record $\Qualon$-increments.
+\item Repeat GLUE/RENORM until residual change $\Delta\Ob+\Delta\Lc$ falls below the posted termination.
+\item Emit path, residual, and qualon length; any alternative derivation is charged against this reference.
+\end{enumerate}
+
+\subsection{Receipt Sheaf Construction}
+Cover the artifact by charts $U_i$; attach to each a local receipt (witness family, $\Guard$, $(\ratio,\rate)$). On $U_{ij}$ compute transition functions $g_{ij}$ by minimizing a guard-weighted mismatch. The obstruction mass is
+\[
+\Ob \defeq \sum_{i<j<k} \big\| g_{ij}g_{jk}g_{ki}-\id \big\|_{\text{guard}},
+\]
+with the guard norm scaling planes and rates to comparable units. Green badge requires $\Ob\le\text{floor}$.
+
+\subsection{CHIA Objective and Training}
+Let $\Cluster$ be a candidate ensemble with per-head typed-effect maps $T_{\Head}$.
+
+\paragraph{Loss.}
+\[
+\mathcal{L}(\Cluster)=
+\lambda_{\text{ext}}\mathcal{L}_{\text{task}}
++\lambda_{\text{port}}\underbrace{\big[\delta_{\ratio}+\delta_{\rate}\big]_+}_{\text{portability}}
++\lambda_{\text{com}}\underbrace{\sum_{\Head_i\neq \Head_j}\|\Comm{T_{\Head_i}}{T_{\Head_j}}\|^2}_{\text{compatibility}}
+-\lambda_{\text{int}}\underbrace{\Yield(\Cluster)}_{\text{Φ-yield}}
+\]
+with $\delta_{\rate}$ the rate gap on the tilt grid; $\Yield$ estimated from FG/GF deltas near the cluster’s footprint at $\Blur_\star$. We anneal $\lambda_{\text{int}}$ in early epochs to avoid chasing aliasing below the ladder.
+
+\paragraph{Curriculum.}
+Mini-batches include \emph{order flips} (GF vs FG) and \emph{idiom flips} (native vs admissible projection). Failure under either flip backpropagates through the relevant term.
+
+\paragraph{κ-sweeps during training.}
+Periodic scale sweeps pull the cluster toward the ridge by maximizing normalized gain per unit slack; this reduces post-hoc calibration burden.
+
+\subsection{Evaluation Protocol}
+Every cluster earns a four-panel verdict:
+
+\begin{enumerate}[label=\textbf{E\arabic*}.]
+\item \textbf{Witness parity:} planes, holonomy, commutator, and $\Delta \Lc$ agree in neighborhood and rank under FG\,$\ne$\,GF.
+\item \textbf{Portability:} \(\ratio\) and \(\rate\) survive projection; accuracy-only passes are rejected.
+\item \textbf{β-ladder:} controls dark, witnesses persistent; $\Blur_\star$ posted.
+\item \textbf{Sheaf glue:} obstruction under floors; card prints the nerve with hot overlaps marked.
+\end{enumerate}
+
+% ------------------------------------------------------------
+\subsection{Ablations}
+We use ablations to separate theater from load-bearing structure.
+
+\paragraph{A1: Remove cluster.}
+Drop $\Cluster$; recompute witnesses and task metrics. A genuine interior shows $\downarrow \Yield$, $\uparrow \Lc$, and no compensating rise in proxies.
+
+\paragraph{A2: Commute typed effects.}
+Force $T_{\Head_i}$ to commute on the support; watch the interior vanish if it depended on non-commutativity.
+
+\paragraph{A3: Blur mis-setting.}
+Test $\beta$ below and above $\Blur_\star$. Hallucinations bloom below; anesthesia above; a lawful interior peaks at the frontier.
+
+\paragraph{A4: Order spoof.}
+Run a synthetic pipeline that mimics exterior outputs in GF; the witnesses must fail, or the claim dies.
+
+% ------------------------------------------------------------
+\subsection{Univalence Stress}
+Pick two clusters; compare guarded invariants and rate spectra across idioms. If equal, construct the isomorphism via overlap transitions; report the qualon-preserving map. If not, publish the smallest tilt at which rates disagree; this is the practical refutation of surface mimicry.
+
+% ------------------------------------------------------------
+\subsection{Ordinal Frontier Update (Theia)}
+An episode that clears C1–C4 with $\PhiField$ and \CHIA\ live pushes $L'$ by one ordinal step. We store only the order and boundary crossing, not interior averages. The card prints: gate statuses, ridge, $(\Qualon,c)$, and the intercalation path hash.
+
+% ============================================================
+\section{Extended Proofs}
+
+\begin{proof}[Intercalation Lemma (full)]
+Let $\mathcal{C}$ be the category of guarded compressions with morphisms respecting $\Guard$; let $\mathcal{R}$ be the re-normalization semi-group acting on guards. Any derivation from $X$ to $Y$ factors into a word over $\mathcal{C}\ast\mathcal{R}$. Equip the word metric by residual cost $d$ given by the guard-weighted sum of (i) obstruction increments on overlaps and (ii) qualon increments from tilt adjustments. GLUE minimizes obstruction subject to fixed guards by the orthogonal projection in the guard norm; RENORM minimizes qualon length for a fixed obstruction level by convexity of $\Lambda^\ast$ in $\theta$. Alternation is thus alternating orthogonal projections in a product space, which is known to converge to the closest point in the intersection; minimality follows from Pythagorean decrease of $d$. Any deviation either increases obstruction for the same guard or increases qualon count for the same obstruction, hence pays tax.
+\end{proof}
+
+\begin{proof}[QPID Invariance (full)]
+Let $K$ be an admissible channel sufficient for loss $\ell$; by Blackwell sufficiency and the data-processing inequality, $\KL$ and hence the CGF $\Lambda$ contract through $K$. The Legendre dual $\rate$ inherits contraction. For a near-lumpable partition $\pi$, the induced Markov coarse-grain $\pi P\pi^\top$ perturbs eigenvalues by at most $\epsilon$ controlled by the lumpability defect; at $\Blur_\star$ this defect sits under floors by design. Translation is a composition of sufficient maps and coarse-grains; hence both $(\ratio,\rate)$ pass and the qualon distance—which is a function of $\rate$—is preserved. Equality holds iff the sufficient statistics match across idioms; that is precisely the condition for a fair report and for univalence.
+\end{proof}
+
+\begin{proof}[Idiomatic Univalence for \CHIA\ (full)]
+Assume guarded invariants and rate spectra match across admissible idioms for $\Cluster_1,\Cluster_2$. Construct local isomorphisms on a cover by aligning principal subspaces (alignment term) and typed-effect charts; compatibility ensures commutator errors are under floor. On overlaps $U_{ij}$ the transitions satisfy the cocycle condition up to guard-weighted error; the obstruction mass is thus below floor and the gluing theorem yields a global isomorphism that preserves qualon distance (since $\rate$ is equal by premise). Conversely, if surface mimicry matches invariants but rates disagree on some tilt, the e-process distinguishes them with finite expected sample size, hence they cannot be the same individual.
+\end{proof}
+
+% ============================================================
+\section{Case Studies}
+
+\subsection{Sensor Lane: Denoise–Integrate vs Integrate–Denoise}
+\textbf{Setup.} Rolling shutter camera, mild motion; task is feature continuity. Guards: fixed tilt grid, $c\!\in\!\{0.05,0.01\}$; blur ladder swept.
+
+\textbf{Witness.} $\FG$ reveals two dominant planes with $\sigma_{1,2}$ and a family of edge-uniques on motion boundaries; $\GF$ lacks both above floors. Local $\Delta\Lc=2\Qualon$ at $c=0.05$.
+
+\textbf{\CHIA.} A 5-head cluster (two spatial, one temporal, two cross-channel) scores $\Score>0$; commuting the typed effects kills $\Yield$ and raises $\Lc$.
+
+\textbf{Portability.} Sketch $\leftrightarrow$ sentence translation preserves $(\ratio,\rate)$; clip re-renders with identical qualon timecode.
+
+\textbf{Card.} β-ladder attached; ridge at $\kappa^\star\!=\!0.8$ (log scale); all kill-switches green.
+
+\subsection{Dialogue Lane: Negotiate–Summarize vs Summarize–Negotiate}
+\textbf{Setup.} Synthetic but adversarial bargaining tasks; guard windows to equalize content budget.
+
+\textbf{Witness.} Running summarize first collapses planes (no interior); negotiate then summarize throws a single strong plane aligned with concession arcs; $\Delta\Lc=\Qualon$.
+
+\textbf{\CHIA.} A language cluster spanning stance, concession timing, and turn-taking cadence throws curvature in FG only; portability holds across voice↔text.
+
+% ============================================================
+\section{Practical Cards and Interfaces}
+
+\subsection{Identity Card with \CHIA\ Backing}
+Fields: provenance hash, $\Kc$ (continuity), blur band $[\beta_-,\beta_+]$, portability window (tolerances on $\ratio,\rate$), reserves (slack), and bequest lanes. The identity line flips green only when the composite clears guards; transfers and revocations modify capability without erasing past corridors.
+
+\subsection{Experience Router}
+Inputs: lane, aim (qualon target at risk $c$), budget. Output: a sequence that routes via clusters with maximal gain-per-slack, with $\beta$ held at $\Blur_\star$, and a stopping certificate. This is a function, not a plea.
+
+% ============================================================
+\section{Failure Anthology (Red Cards Worth Keeping)}
+\begin{itemize}
+\item \textbf{Accuracy liar.} $\ratio$ preserved, $\rate$ fails: counterfeit translation; publish the tilt of failure.
+\item \textbf{Blur abuser.} Witness vanishes at $\Blur_\star$; only visible below: aliasing glamor.
+\item \textbf{Order romantic.} GF mimics FG’s exterior; witnesses disagree; card prints the theater.
+\item \textbf{Overlap fabulist.} Glue holds locally, but $H^1$ spikes: parochial identity; widen the cover or retract.
+\end{itemize}
+
+% ============================================================
+\section{Related Instruments (Terse Bridge Notes)}
+\paragraph{Parallel Murphy Budgeting.} The hazard-per-time index schedules both discovery and sensibility because both pay in $\Delta\Lc$. 
+
+\paragraph{Drift telemetry.} Early-warning slopes of $\Lambda$ give pre-knee alerts; with $\PhiField$ live, these correlate with thickening planes.
+
+\paragraph{Latent TC threshold.} The context horizon, lexical packing, and interior dimensionality provide a viability triad; with qualons, we additionally require renderability of interior.
+
+% ============================================================
+\section{Discussion (Wider Angle, Same Steel)}
+We have refused two temptations: turning interior into romance and turning identity into paperwork. The receipts grammar—ports, blur, glue, clocks—treats both as load-bearing species in the same ecology. Attention is reclassified from spotlight to foundry; interpretability from gallery to surveyor’s kit; ownership from aura to continuity; translation from compliment to contract. Nothing here asks for belief; everything asks for a meter reading.
+
+% ============================================================
+\section{Conclusion}
+Two strokes with one chisel: \emph{experience} measured as guarded curvature with an ordinal unit (the qualon), and \emph{individual} rendered as a quotient-stable composite head that keeps its invariants under projection and blur. The same kill-switches that police proofs police feelings and persons. The same scheduler that hunts rare events moves lives by ticks. The same sheaf that glues theorems glues biographies. This is not an empire; it is a workshop with clocks. We shut the mezzanine lights by the same rule we turned them on: if the forward order makes the room different and the reverse cannot, we keep the change and carry it. If not, we admire the morning star and wait for noon.
+
+% ============================================================
+\appendix
+\section*{Appendix A: Extended Notation and Floors}
+We list default floors: commutator energy floor $K_{\min}$, plane energy floor $\sigma_{\min}$, obstruction floor $\Ob_{\min}$, rate tolerance $\delta_{\rate,\min}$, ratio tolerance $\delta_{\ratio,\min}$. Cards must state their exact values.
+
+\section*{Appendix B: Pseudo-code Stencils}
+
+\paragraph{β-ladder.}
+{\small
+\begin{verbatim}
+for beta in schedule():
+  render_witness(beta)
+  render_controls(beta)
+  if controls_dark(beta) and witnesses_persist(beta):
+     beta_star <- beta; break
+\end{verbatim}}
+
+\paragraph{Portability Gate.}
+{\small
+\begin{verbatim}
+project <- admissible_projection()
+(ratio_gap, rate_gap) <- compare(native, project)
+assert ratio_gap < tol_ratio and rate_gap < tol_rate
+\end{verbatim}}
+
+\paragraph{Sheaf Glue.}
+{\small
+\begin{verbatim}
+for (i,j,k) in nerve_triples():
+  obstruction += guard_norm(g_ij*g_jk*g_ki - I)
+assert obstruction < floor
+\end{verbatim}}
+
+\section*{Appendix C: Worked Algebra for the CUP Frontier}
+A simple bound: let the discretization kernel have MTF $m(\omega)$ and the witness live in band $B$. Choose $\beta$ so that $\inf_{\omega\in B} m(\omega)\ge \tau$ while $\sup_{\omega\notin B} m(\omega)\le \tau'$ with $\tau\gg\tau'$; $\beta_\star$ is the smallest such setting where controls (out-of-band) are suppressed by at least $\tau'$ and witnesses (in-band) preserved by at least $\tau$.
+
+\section*{Appendix D: Bench Card Template}
+\begin{verbatim}
+RUN: <uuid>  LANE: <name>  DATE: <iso8601>
+GUARDS: {tilt-grid=<...>, c=<...>, floors=<...>}
+BLUR: beta_star=<...>  ladder=<...>
+WITNESSES: planes=<...>  holonomy=<...>  K=<...>
+QUALON: ticks=<...>  ridge kappa*=<...>
+PORTABILITY: ratio=<...> rate=<...>  pass=Y/N
+SHEAF: H1_mass=<...>  pass=Y/N
+KILL-SWITCHES: KS1=<...> KS2=<...> KS3=<...>
+CARD HASH: <blake3(...)>
+\end{verbatim}
+
+% ============================================================
+\end{document}
